@@ -45,8 +45,14 @@ function QuoteForm() {
 
 export default function Home() {
   return <main id="top">
+    <style>{`
+      .hero-photo-wrap{position:absolute;inset:-4%;overflow:hidden}
+      .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.06);animation:marathonHeroDrift 20s ease-in-out infinite alternate;will-change:transform}
+      @keyframes marathonHeroDrift{0%{transform:scale(1.06) translate3d(-0.6%,0,0)}100%{transform:scale(1.13) translate3d(0.6%,-1%,0)}}
+      @media (prefers-reduced-motion:reduce){.hero-photo{animation:none;transform:scale(1.06)}}
+    `}</style>
     <section className="hero">
-      <div className="hero-media" aria-hidden="true"><div className="hero-image" /><div className="hero-shade" /><div className="hero-glow" /></div>
+      <div className="hero-media" aria-hidden="true"><div className="hero-photo-wrap"><img className="hero-photo" src={realImages[0]} alt="" fetchPriority="high" /></div><div className="hero-shade" /><div className="hero-glow" /></div>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Marathon Lawn Care & Services home"><span className="brand-mark"><Leaf size={24} /></span><span><strong>MARATHON</strong><small>LAWN CARE & SERVICES</small></span></a>
         <nav className="desktop-nav" aria-label="Main navigation"><a className="active" href="#top">Home</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#work">Our Work</a><a href="#faq">FAQs</a><a href="#quote">Contact</a></nav>
