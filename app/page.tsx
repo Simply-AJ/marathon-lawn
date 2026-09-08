@@ -1,56 +1,129 @@
 'use client';
 
 import { useState } from 'react';
+import { ArrowRight, Check, ChevronDown, Facebook, Leaf, MapPin, Phone, ShieldCheck, Star, UserRound } from 'lucide-react';
 
 const phone = '(952) 395-6574';
 const maps = 'https://maps.app.goo.gl/3dXZ9345C2K9wy6KA';
 const facebook = 'https://www.facebook.com/marathonlcs/';
 
+const gallery = [
+  { src: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1400&q=85', label: 'Beautiful results' },
+  { src: 'https://images.unsplash.com/photo-1599685315640-4d1c6e6f5b5f?auto=format&fit=crop&w=1200&q=85', label: 'Clean landscape beds' },
+  { src: 'https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=1200&q=85', label: 'Reliable lawn care' },
+  { src: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=85', label: 'Property care' },
+  { src: 'https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=1200&q=85', label: 'Seasonal cleanup' },
+];
+
 const services = [
-  {title:'Lawn Care', price:'$50/week', text:'Weekly or bi-weekly mowing for small and standard lawns. Mowing, trimming, edging and cleanup included.'},
-  {title:'Property Services', price:'From $75', text:'Planting, bed cleanup, decorative rock work, edging, small shrub removal and landscape fabric repair.'},
-  {title:'Seasonal Cleanups', price:'From $125', text:'Spring and fall cleanup, leaf removal, bed cleanouts, debris and stick pickup.'},
-  {title:'Additional Services', price:'From $75', text:'Pressure washing, sprinkler services and gutter cleaning when you need more done.'},
+  { title: 'Lawn Care', price: '$50/week', text: 'Weekly or bi-weekly mowing, trimming, edging and cleanup.' },
+  { title: 'Property Services', price: 'From $75', text: 'Planting, bed cleanup, decorative rock work, edging and small shrub removal.' },
+  { title: 'Seasonal Cleanups', price: 'From $125', text: 'Spring and fall cleanup, leaf removal, bed cleanouts and debris pickup.' },
+  { title: 'Additional Services', price: 'From $75', text: 'Pressure washing, sprinkler services and gutter cleaning.' },
 ];
 
 const faqs = [
- ['How is lawn care priced?','Pricing is based on time spent on your property, not an estimate of lawn size. Small lawns up to 30 minutes are $50 weekly or $60 bi-weekly. Standard lawns from 30 to 60 minutes are $60 weekly or $75 bi-weekly.'],
- ['Do I need to be home?','No. As long as the crew can access the property and the lawn is clear, you do not need to be home.'],
- ['How do I pay?','Marathon Lawn accepts cash, check, Zelle, Venmo and Cash App.'],
- ['What happens if it rains?','Service may be moved when weather makes mowing impractical. The goal is to protect the lawn and still keep your schedule predictable.'],
- ['Are you insured?','Yes. Marathon Lawn is fully insured.'],
- ['Do I need a service agreement?','A service agreement is required for recurring lawn care so the schedule and expectations stay clear.'],
+  ['How is lawn care priced?', 'Pricing is based on time spent on your property, not an estimate of lawn size. Small lawns up to 30 minutes are $50 weekly or $60 bi-weekly. Standard lawns from 30 to 60 minutes are $60 weekly or $75 bi-weekly.'],
+  ['Do I need to be home?', 'No. As long as the crew can access the property and the lawn is clear, you do not need to be home.'],
+  ['How do I pay?', 'Marathon Lawn accepts cash, check, Zelle, Venmo and Cash App.'],
+  ['What happens if it rains?', 'Service is moved when weather makes mowing impractical and rescheduled for the next available day.'],
+  ['Are you insured?', 'Yes. Marathon Lawn is fully insured.'],
+  ['Do I need a service agreement?', 'A service agreement is required for recurring lawn care, but it is not a long-term commitment.'],
 ];
 
-function QuoteForm(){
- const [sent,setSent]=useState(false);
- return <form className="card shadow-soft p-6 sm:p-8" onSubmit={(e)=>{e.preventDefault();setSent(true)}}>
-   <div className="mb-6"><p className="eyebrow">Free instant quote</p><h3 className="display text-3xl font-bold mt-2">Tell us where you need help.</h3><p className="text-[#68756c] mt-2">No guesswork. We will use your details to get the quote conversation started.</p></div>
-   {sent ? <div className="rounded-2xl bg-[#e7f0e8] p-5"><strong className="block text-xl">Quote request ready.</strong><p className="mt-1 text-[#526057]">Thanks. Call {phone} to finish scheduling your free quote.</p></div> : <div className="space-y-4">
-    <input required name="name" placeholder="Your name" className="focus-ring w-full rounded-xl border border-[#dfe5dd] bg-white p-4"/>
-    <input required name="phone" type="tel" placeholder="Phone number" className="focus-ring w-full rounded-xl border border-[#dfe5dd] bg-white p-4"/>
-    <input name="email" type="email" placeholder="Email address" className="focus-ring w-full rounded-xl border border-[#dfe5dd] bg-white p-4"/>
-    <input required name="zip" inputMode="numeric" placeholder="ZIP code" className="focus-ring w-full rounded-xl border border-[#dfe5dd] bg-white p-4"/>
-    <button className="btn btn-primary focus-ring w-full">Get My Free Quote</button>
-    <p className="text-center text-xs text-[#68756c]">Serving Scott County & Dakota County, Minnesota</p>
-   </div>}
- </form>
+function QuoteForm() {
+  const [sent, setSent] = useState(false);
+  return (
+    <form className="quote-card" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+      <p className="eyebrow">Free instant quote</p>
+      <h2 className="display quote-title">Tell us where you need help.</h2>
+      <p className="quote-copy">Fast. Simple. No obligation.</p>
+      {sent ? (
+        <div className="success-box">
+          <Check size={20} />
+          <div><strong>Quote request ready.</strong><p>Thanks. Call {phone} to finish scheduling your free quote.</p></div>
+        </div>
+      ) : (
+        <div className="quote-fields">
+          <input required name="name" placeholder="Full name" />
+          <input required name="phone" type="tel" placeholder="Phone number" />
+          <input name="email" type="email" placeholder="Email address" />
+          <input required name="zip" inputMode="numeric" placeholder="ZIP code" />
+          <button className="btn btn-primary" type="submit">Get My Free Quote <ArrowRight size={18} /></button>
+          <span className="secure-copy">Your information is used to start your quote conversation.</span>
+        </div>
+      )}
+    </form>
+  );
 }
 
-export default function Home(){
- return <main>
-  <div className="bg-[#173326] text-white text-sm"><div className="container flex min-h-10 items-center justify-between gap-4"><span>Owner-operated lawn care in Scott & Dakota County</span><a className="underline underline-offset-4" href={`tel:${phone.replace(/[^0-9+]/g,'')}`}>{phone}</a></div></div>
-  <header className="sticky top-0 z-40 border-b border-[#dfe5dd] bg-[#f7f4ec]/95 backdrop-blur"><div className="container flex h-18 items-center justify-between gap-5"><a href="#top" className="display text-2xl font-black">Marathon<span className="text-[#c96f43]">.</span></a><nav className="hidden items-center gap-7 text-sm font-bold md:flex"><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#process">How it works</a><a href="#faq">FAQ</a></nav><a className="btn btn-primary focus-ring text-sm" href="#quote">Get Your Free Quote</a></div></header>
-  <section id="top" className="relative overflow-hidden bg-[#dfe9df] py-14 sm:py-20"><div className="container grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]"><div><p className="eyebrow">Weekly lawn care. Done right.</p><h1 className="display mt-4 max-w-3xl text-5xl font-black leading-[.96] sm:text-7xl">Your lawn gets done. <span className="text-[#c96f43]">Every week.</span></h1><p className="mt-6 max-w-xl text-lg leading-8 text-[#526057]">One dedicated operator. Upfront pricing based on time, not guesswork. No chasing crews. No surprise mid-season prices.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a className="btn btn-primary focus-ring" href="#quote">Get Your Free Quote</a><a className="btn btn-dark focus-ring" href={`tel:${phone.replace(/[^0-9+]/g,'')}`}>Call {phone}</a></div><div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold"><span>✓ Owner-operated</span><span>✓ Fully insured</span><span>✓ Commercial-grade equipment</span></div></div><div className="relative"><div className="overflow-hidden rounded-[32px] shadow-soft"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1400&q=85" alt="Well-kept suburban lawn" className="h-[430px] w-full object-cover sm:h-[520px]"/></div><div className="absolute -bottom-5 left-4 rounded-2xl bg-white p-4 shadow-soft sm:left-8"><p className="text-xs font-black uppercase tracking-wider text-[#c96f43]">The Marathon standard</p><p className="mt-1 font-bold">Mow. Trim. Edge. Blow. Done.</p></div></div></div></section>
-  <section className="border-y border-[#dfe5dd] bg-white"><div className="container grid grid-cols-2 divide-x divide-[#dfe5dd] sm:grid-cols-4"><div className="p-5 text-center"><b className="block">Owner-operated</b><span className="text-xs text-[#68756c]">Same person every time</span></div><div className="p-5 text-center"><b className="block">Upfront pricing</b><span className="text-xs text-[#68756c]">Based on time</span></div><div className="p-5 text-center"><b className="block">Fully insured</b><span className="text-xs text-[#68756c]">Work with confidence</span></div><div className="p-5 text-center"><b className="block">Local service</b><span className="text-xs text-[#68756c]">Scott & Dakota County</span></div></div></section>
-  <section className="section"><div className="container grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p className="eyebrow">The problem</p><h2 className="display mt-3 text-4xl font-black sm:text-5xl">You should not have to manage your lawn company.</h2></div><div className="grid gap-4 sm:grid-cols-3"><div className="card p-6"><div className="text-3xl">01</div><h3 className="mt-8 font-black text-xl">Crews no-show</h3><p className="mt-2 text-[#68756c]">Your lawn gets pushed down the list and your weekend becomes cleanup day.</p></div><div className="card p-6"><div className="text-3xl">02</div><h3 className="mt-8 font-black text-xl">Prices creep up</h3><p className="mt-2 text-[#68756c]">You start with one number and get another once the season is underway.</p></div><div className="card bg-[#173326] p-6 text-white"><div className="text-3xl text-[#d7b98a]">03</div><h3 className="mt-8 font-black text-xl">Marathon fixes it</h3><p className="mt-2 text-[#cbd7cf]">A set schedule, one operator and pricing tied to time on your property.</p></div></div></div></section>
-  <section id="services" className="section bg-[#173326] text-white"><div className="container"><div className="max-w-2xl"><p className="eyebrow">Services</p><h2 className="display mt-3 text-4xl font-black sm:text-5xl">Simple services. Clear starting prices.</h2></div><div className="mt-10 grid gap-5 md:grid-cols-2">{services.map((s,i)=><div key={s.title} className="rounded-[28px] border border-white/10 bg-white/5 p-7"><div className="flex items-start justify-between gap-5"><span className="rounded-full bg-[#d7b98a] px-3 py-1 text-xs font-black text-[#173326]">0{i+1}</span><span className="font-black text-[#d7b98a]">{s.price}</span></div><h3 className="mt-8 text-2xl font-black">{s.title}</h3><p className="mt-3 leading-7 text-[#cbd7cf]">{s.text}</p><a href="#quote" className="mt-6 inline-block font-black underline decoration-[#d7b98a] underline-offset-4">Get a quote for this →</a></div>)}</div></div></section>
-  <section id="pricing" className="section"><div className="container"><div className="text-center"><p className="eyebrow">Lawn care pricing</p><h2 className="display mt-3 text-4xl font-black sm:text-5xl">Know your price before we start.</h2><p className="mx-auto mt-4 max-w-2xl text-[#68756c]">Pricing is based on time on the property. Weekly is the best value if you want your lawn handled without thinking about it.</p></div><div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-[28px] border border-[#dfe5dd] bg-white shadow-soft"><div className="grid grid-cols-3 bg-[#173326] p-5 text-sm font-black text-white"><span>Lawn</span><span>Weekly</span><span>Bi-weekly</span></div><div className="grid grid-cols-3 border-t border-[#dfe5dd] p-6"><div><b>Small</b><span className="block text-sm text-[#68756c]">30 min or less</span></div><b>$50</b><b>$60</b></div><div className="grid grid-cols-3 border-t border-[#dfe5dd] p-6"><div><b>Standard</b><span className="block text-sm text-[#68756c]">30–60 min</span></div><b>$60</b><b>$75</b></div><div className="bg-[#f4eadb] p-5 text-sm"><b>Every mow includes:</b> mowing, trimming, edging sidewalks as needed, and blowing hard surfaces clean.</div></div></div></section>
-  <section id="process" className="section bg-[#eadfce]"><div className="container"><div className="max-w-2xl"><p className="eyebrow">How it works</p><h2 className="display mt-3 text-4xl font-black sm:text-5xl">Three steps. Then forget about the lawn.</h2></div><div className="mt-10 grid gap-5 md:grid-cols-3"><div className="rounded-[28px] bg-white p-7"><span className="text-5xl font-black text-[#c96f43]">01</span><h3 className="mt-8 text-xl font-black">Request your quote</h3><p className="mt-2 text-[#68756c]">Send your name, phone and ZIP. We will take it from there.</p></div><div className="rounded-[28px] bg-white p-7"><span className="text-5xl font-black text-[#c96f43]">02</span><h3 className="mt-8 text-xl font-black">Get scheduled</h3><p className="mt-2 text-[#68756c]">Know the price and get a recurring service day on the calendar.</p></div><div className="rounded-[28px] bg-white p-7"><span className="text-5xl font-black text-[#c96f43]">03</span><h3 className="mt-8 text-xl font-black">Get your weekend back</h3><p className="mt-2 text-[#68756c]">We mow, trim, edge and blow. You do not have to think about it.</p></div></div></div></section>
-  <section className="section"><div className="container grid gap-8 lg:grid-cols-[1fr_.8fr]"><div className="rounded-[32px] bg-[#173326] p-8 text-white sm:p-12"><p className="eyebrow">Trust without the hype</p><h2 className="display mt-4 text-4xl font-black sm:text-5xl">Be one of our first reviews.</h2><p className="mt-5 max-w-xl leading-8 text-[#cbd7cf]">Marathon Lawn is building its review base. See the business listing, follow along on Facebook, and tell us what you think after your first service.</p><div className="mt-8 flex flex-wrap gap-3"><a className="btn btn-primary" href={maps} target="_blank">View Google listing</a><a className="btn border border-white/20 bg-white/10" href={facebook} target="_blank">Visit Facebook</a></div></div><div className="card p-8"><p className="text-4xl">★★★★★</p><h3 className="mt-5 text-2xl font-black">“Be one of our first reviews.”</h3><p className="mt-3 text-[#68756c]">A placeholder section designed to make real customer quotes easy to add as the business collects them.</p></div></div></section>
-  <section id="faq" className="section bg-white"><div className="container grid gap-12 lg:grid-cols-[.7fr_1.3fr]"><div><p className="eyebrow">FAQ</p><h2 className="display mt-3 text-4xl font-black sm:text-5xl">Straight answers before you book.</h2></div><div className="space-y-3">{faqs.map(([q,a])=><details key={q} className="group rounded-2xl border border-[#dfe5dd] bg-[#f7f4ec] p-5"><summary className="cursor-pointer list-none font-black pr-6">{q}<span className="float-right text-[#c96f43]">+</span></summary><p className="mt-3 max-w-3xl leading-7 text-[#68756c]">{a}</p></details>)}</div></div></section>
-  <section id="quote" className="section bg-[#eadfce]"><div className="container grid items-center gap-10 lg:grid-cols-[1fr_.8fr]"><div><p className="eyebrow">Get started</p><h2 className="display mt-3 text-5xl font-black leading-none sm:text-6xl">Get the lawn off your weekend list.</h2><p className="mt-6 max-w-xl text-lg leading-8 text-[#526057]">Tell Marathon Lawn where you are. We will help you get a clear quote and a schedule you can count on.</p><div className="mt-7 space-y-2 font-bold"><a className="block underline underline-offset-4" href={`tel:${phone.replace(/[^0-9+]/g,'')}`}>{phone}</a><a className="block underline underline-offset-4" href="mailto:Wayne@MarathonLawn.com">Wayne@MarathonLawn.com</a><span className="block text-[#68756c]">Open today, 9:00 am–5:00 pm</span></div></div><QuoteForm/></div></section>
-  <footer className="bg-[#10271c] py-10 text-white"><div className="container grid gap-8 sm:grid-cols-3"><div><div className="display text-2xl font-black">Marathon<span className="text-[#c96f43]">.</span></div><p className="mt-3 max-w-sm text-sm leading-6 text-[#b9c7bd]">Owner-operated lawn care for homeowners in Scott County and Dakota County, Minnesota.</p></div><div><p className="font-black">Contact</p><a className="mt-3 block text-sm text-[#d7b98a]" href={`tel:${phone.replace(/[^0-9+]/g,'')}`}>{phone}</a><a className="mt-1 block text-sm text-[#d7b98a]" href="mailto:Wayne@MarathonLawn.com">Wayne@MarathonLawn.com</a></div><div><p className="font-black">Explore</p><a className="mt-3 block text-sm text-[#b9c7bd]" href={maps} target="_blank">Google Business listing</a><a className="mt-1 block text-sm text-[#b9c7bd]" href={facebook} target="_blank">Facebook</a></div></div><div className="container mt-8 border-t border-white/10 pt-6 text-xs text-[#84958b]">© {new Date().getFullYear()} Marathon Lawn. All rights reserved.</div></footer>
-  <a href="#quote" className="fixed bottom-4 left-4 right-4 z-50 rounded-full bg-[#c96f43] px-5 py-4 text-center font-black text-white shadow-soft md:hidden">Get Your Free Quote</a>
- </main>
+export default function Home() {
+  return (
+    <main id="top">
+      <section className="hero">
+        <div className="hero-media" aria-hidden="true">
+          <div className="hero-image" />
+          <div className="hero-shade" />
+          <div className="hero-glow" />
+        </div>
+
+        <header className="site-header">
+          <a className="brand" href="#top" aria-label="Marathon Lawn Care & Services home">
+            <span className="brand-mark"><Leaf size={24} /></span>
+            <span><strong>MARATHON</strong><small>LAWN CARE & SERVICES</small></span>
+          </a>
+          <nav className="desktop-nav" aria-label="Main navigation">
+            <a className="active" href="#top">Home</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#work">Our Work</a><a href="#faq">FAQs</a><a href="#quote">Contact</a>
+          </nav>
+          <div className="header-actions"><a className="phone-link" href={`tel:${phone.replace(/[^0-9+]/g, '')}`}><Phone size={17} /> {phone}</a><a className="btn btn-primary header-cta" href="#quote">Get Your Free Quote <ArrowRight size={17} /></a></div>
+        </header>
+
+        <div className="hero-inner container">
+          <div className="hero-copy">
+            <p className="hero-location">SCOTT COUNTY & DAKOTA COUNTY, MINNESOTA</p>
+            <h1 className="display">A Lawn You'll Love.<br /><span>Without the Hassle.</span></h1>
+            <p className="hero-description">Reliable, owner-operated lawn care with upfront pricing, no surprise fees, and the same person every time. You get your weekends back. We'll handle the rest.</p>
+            <div className="trust-points">
+              <div><span><UserRound size={21} /></span><b>Owner Operated</b><small>Same person every time</small></div>
+              <div><span><ShieldCheck size={21} /></span><b>Fully Insured</b><small>Your property is protected</small></div>
+              <div><span><Leaf size={21} /></span><b>Commercial-Grade Equipment</b><small>A cleaner, better cut</small></div>
+            </div>
+            <div className="hero-actions"><a className="btn btn-primary" href="#quote">Get Your Free Quote <ArrowRight size={19} /></a><a className="btn btn-outline" href={`tel:${phone.replace(/[^0-9+]/g, '')}`}><Phone size={18} /> Call {phone}</a></div>
+          </div>
+          <div className="hero-form-wrap"><QuoteForm /><div className="hand-note">Real work.<br />Real results.</div></div>
+        </div>
+
+        <div className="work-strip container" id="work">
+          {gallery.map((item, i) => <a className={`work-thumb ${i === 0 ? 'selected' : ''}`} href="#services" key={item.label}><img src={item.src} alt={item.label} loading={i === 0 ? 'eager' : 'lazy'} /><span>{item.label}</span>{i === 0 && <span className="play-dot">▶</span>}</a>)}
+        </div>
+      </section>
+
+      <section className="proof-bar">
+        <div className="container proof-grid">
+          <div className="rating"><div className="avatar-stack"><span>W</span><span>M</span><span>J</span><span>C</span></div><div><div className="stars">★★★★★</div><strong>Real customer results</strong><small>See the latest reviews</small></div></div>
+          <a href={maps} target="_blank" rel="noreferrer"><span className="proof-icon google">G</span><div><strong>Read Our Reviews</strong><small>See what homeowners are saying</small></div><ArrowRight size={18} /></a>
+          <a href={facebook} target="_blank" rel="noreferrer"><span className="proof-icon fb"><Facebook size={20} /></span><div><strong>Follow Us on Facebook</strong><small>Project updates and seasonal tips</small></div><ArrowRight size={18} /></a>
+          <div><span className="proof-icon location"><MapPin size={20} /></span><div><strong>Proudly Serving</strong><small>Scott County & Dakota County, MN</small></div><ArrowRight size={18} /></div>
+        </div>
+      </section>
+
+      <section className="weekends section">
+        <div className="container weekends-grid">
+          <div><p className="eyebrow">TAKE BACK YOUR WEEKENDS</p><h2 className="display section-title">A Healthier, Happier Lawn Starts Here.</h2><p className="section-copy">From weekly mowing to seasonal cleanups and property care, Marathon Lawn keeps your property looking its best without the stress.</p><ul className="check-list"><li><Check size={18} />Upfront, time-based pricing</li><li><Check size={18} />Same person, every time</li><li><Check size={18} />Professional, detail-oriented service</li><li><Check size={18} />Fully insured for your peace of mind</li></ul><a className="btn btn-primary" href="#quote">Get Your Free Quote <ArrowRight size={18} /></a></div>
+          <div className="before-after"><div className="ba-before"><img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1000&q=85" alt="Lawn before regular care" /><span>Before</span></div><div className="ba-after"><img src={gallery[0].src} alt="Well-kept lawn after care" /><span>After</span></div><div className="ba-handle">↔</div><div className="review-card"><div className="stars">★★★★★</div><p>“Professional, reliable and my lawn has never looked better.”</p><small>— Local Homeowner</small></div></div>
+        </div>
+      </section>
+
+      <section id="services" className="services-section section"><div className="container"><div className="section-head"><div><p className="eyebrow">OUR SERVICES</p><h2 className="display section-title">Complete Lawn & Property Care</h2><p className="section-copy">Everything you need to keep your property looking its best, all season long.</p></div><a className="btn btn-outline" href="#quote">View All Services <ArrowRight size={18} /></a></div><div className="service-grid">{services.map((s, i) => <article className="service-card" key={s.title}><span className="service-number">0{i + 1}</span><h3>{s.title}</h3><strong>{s.price}</strong><p>{s.text}</p><a href="#quote">Get a Quote for This <ArrowRight size={16} /></a></article>)}</div></div></section>
+
+      <section id="pricing" className="pricing section"><div className="container pricing-grid"><div><p className="eyebrow">LAWN CARE PRICING</p><h2 className="display section-title">Know your price before we start.</h2><p className="section-copy">Pricing is based on time on the property. Weekly service is the best value if you want your lawn handled without thinking about it.</p><a className="text-link" href="#quote">Get a quote for your lawn <ArrowRight size={17} /></a></div><div className="price-table"><div className="price-head"><span>Lawn</span><span>Weekly</span><span>Bi-weekly</span></div><div className="price-row"><div><b>Small</b><small>30 min or less</small></div><b>$50</b><b>$60</b></div><div className="price-row featured"><div><b>Standard</b><small>30–60 min</small></div><b>$60</b><b>$75</b></div><p><b>Every mow includes:</b> mowing, trimming, edging sidewalks as needed, and blowing hard surfaces clean.</p></div></div></section>
+
+      <section id="faq" className="faq section"><div className="container faq-grid"><div><p className="eyebrow">FAQ</p><h2 className="display section-title">Straight answers before you book.</h2></div><div className="faq-list">{faqs.map(([q, a]) => <details key={q}><summary>{q}<ChevronDown size={18} /></summary><p>{a}</p></details>)}</div></div></section>
+
+      <section id="quote" className="final-cta section"><div className="container final-grid"><div><p className="eyebrow">GET STARTED</p><h2 className="display section-title">Get the lawn off your weekend list.</h2><p className="section-copy">Tell Marathon Lawn where you are. We'll help you get a clear quote and a schedule you can count on.</p><div className="contact-lines"><a href={`tel:${phone.replace(/[^0-9+]/g, '')}`}>{phone}</a><a href="mailto:Wayne@MarathonLawn.com">Wayne@MarathonLawn.com</a><span>Open today, 9:00 am–5:00 pm</span></div></div><QuoteForm /></div></section>
+
+      <footer><div className="container footer-grid"><a className="brand footer-brand" href="#top"><span className="brand-mark"><Leaf size={24} /></span><span><strong>MARATHON</strong><small>LAWN CARE & SERVICES</small></span></a><p>Owner-operated lawn care for Scott County & Dakota County, Minnesota.</p><div><a href={facebook} target="_blank" rel="noreferrer">Facebook</a><a href={maps} target="_blank" rel="noreferrer">Google Maps</a><a href="mailto:Wayne@MarathonLawn.com">Email</a></div><a className="footer-phone" href={`tel:${phone.replace(/[^0-9+]/g, '')}`}>{phone}</a></div></footer>
+      <a className="mobile-sticky-cta" href="#quote">Get Your Free Quote <ArrowRight size={18} /></a>
+    </main>
+  );
 }
