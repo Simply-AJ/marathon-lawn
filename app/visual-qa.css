@@ -1,0 +1,48 @@
+/* Visual QA pass: preserve the approved layout while protecting image-led sections from remote asset failures. */
+.work-thumb,
+.service-image,
+.before-after,
+.ba-before,
+.ba-after,
+.matters-card{
+  background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85');
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+.work-thumb img,
+.service-image img,
+.ba-before img,
+.ba-after img,
+.matters-card img{
+  background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85');
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+.service-image{min-height:145px}
+.work-thumb{min-width:0}
+.before-after{min-height:420px}
+
+@media(min-width:901px){
+  .hero-inner{min-height:430px}
+  .work-strip{margin-top:42px}
+  .services-section .service-grid{align-items:stretch}
+  .services-section .service-card{overflow:hidden}
+  .pricing-grid{min-height:430px}
+  .how-grid{row-gap:42px}
+  .faq-grid{align-items:start}
+  .final-grid{align-items:center}
+}
+
+@media(max-width:900px){
+  .before-after{min-height:430px}
+  .service-image{min-height:150px}
+}
+
+@media(max-width:600px){
+  .before-after{min-height:350px}
+  .service-image{min-height:150px}
+}
