@@ -1,4 +1,4 @@
-/* Visual QA: use stable fallback imagery when the original GoDaddy image CDN fails. */
+/* Marathon photo pass: use the supplied project photography throughout the landing page. */
 .hero-media,
 .work-thumb,
 .service-image,
@@ -11,38 +11,51 @@
   background-repeat:no-repeat;
 }
 
+/* Hero: the lawn-care worker using the backpack blower. */
 .hero-media{
-  background-image:url('https://www.discoveryoutdoorservices.com/uplift-data/images/services/lawn-maintenance-new.jpg');
+  background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/B8B63D30-6550-4BF1-A5AC-00748B50C2CD.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1800,h:1200,cg:true');
+  animation:marathonHeroDrift 18s ease-in-out infinite alternate;
+  overflow:hidden;
 }
 
-.work-thumb:nth-child(1){background-image:url('https://www.discoveryoutdoorservices.com/uplift-data/images/services/lawn-maintenance-new.jpg')}
-.work-thumb:nth-child(2){background-image:url('https://www.sunsetmowing.com/files/account/images/banner-lawn-fertilized-regularly.webp')}
-.work-thumb:nth-child(3){background-image:url('https://static.wixstatic.com/media/4c3946_5682effd2b8d4b729aec8dd14912ddad~mv2.jpg/v1/fill/w_824%2Ch_480%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/StockPhotos-Resized-014.jpg')}
-.work-thumb:nth-child(4){background-image:url('https://headsupoutdoorservices.com/_next/image?q=75&url=https%3A%2F%2Fik.imagekit.io%2F4wu305uo4%2Ftr%3Aw-1000%2Cf-auto%2Clo-true%2Cq-80%2Fimage_69c5d75f5c7cd75eb8ead32e.jpeg&w=3840')}
-.work-thumb:nth-child(5){background-image:url('https://redemptivelawncare.com/wp-content/uploads/2025/03/Lawn-Care-Lawn-Maintenance-Redemptive-Lawn-Care-Harmony-MN-31.jpg')}
-.work-thumb:nth-child(6){background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85')}
-
-.service-card:nth-child(1) .service-image{background-image:url('https://www.discoveryoutdoorservices.com/uplift-data/images/services/lawn-maintenance-new.jpg')}
-.service-card:nth-child(2) .service-image{background-image:url('https://static.wixstatic.com/media/4c3946_5682effd2b8d4b729aec8dd14912ddad~mv2.jpg/v1/fill/w_824%2Ch_480%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/StockPhotos-Resized-014.jpg')}
-.service-card:nth-child(3) .service-image{background-image:url('https://headsupoutdoorservices.com/_next/image?q=75&url=https%3A%2F%2Fik.imagekit.io%2F4wu305uo4%2Ftr%3Aw-1000%2Cf-auto%2Clo-true%2Cq-80%2Fimage_69c5d75f5c7cd75eb8ead32e.jpeg&w=3840')}
-.service-card:nth-child(4) .service-image{background-image:url('https://www.sunsetmowing.com/files/account/images/banner-lawn-fertilized-regularly.webp')}
-
-.ba-before{background-image:url('https://www.sunsetmowing.com/files/account/images/banner-lawn-fertilized-regularly.webp')}
-.ba-after{background-image:url('https://www.discoveryoutdoorservices.com/uplift-data/images/services/lawn-maintenance-new.jpg')}
-.matters-card{background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85')}
-
-/* The original img1.wsimg.com assets intermittently fail when hot-linked from Vercel. Hide the failed element so the stable parent fallback remains visible. */
-img[src*="img1.wsimg.com"]{
-  visibility:hidden;
+.hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(10,34,23,.82) 0%,rgba(10,34,23,.55) 46%,rgba(10,34,23,.3) 100%);
+  pointer-events:none;
 }
 
+@keyframes marathonHeroDrift{
+  0%{background-position:48% 50%;transform:scale(1)}
+  100%{background-position:56% 46%;transform:scale(1.045)}
+}
+
+/* Work strip: use the supplied lawn-care photography rather than stock imagery. */
+.work-thumb:nth-child(1){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/B8B63D30-6550-4BF1-A5AC-00748B50C2CD.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,h:1200,cg:true')}
+.work-thumb:nth-child(2){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/A8F7A59E-B9F2-4D29-93D5-96BC0D6B01DC.png/:/rs=w:1600,cg:true,m')}
+.work-thumb:nth-child(3){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/409D34DD-077B-4A8B-B203-644F23E1D388.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
+.work-thumb:nth-child(4){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/2AD18D65-0417-40F1-86E8-50074DB5CA87.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
+.work-thumb:nth-child(5){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/6652F19E-322E-412A-B2B7-DF6EDE3625C2.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
+.work-thumb:nth-child(6){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/A8F7A59E-B9F2-4D29-93D5-96BC0D6B01DC.png/:/rs=w:1600,cg:true,m')}
+
+.service-card:nth-child(1) .service-image{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/B8B63D30-6550-4BF1-A5AC-00748B50C2CD.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,h:1200,cg:true')}
+.service-card:nth-child(2) .service-image{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/A8F7A59E-B9F2-4D29-93D5-96BC0D6B01DC.png/:/rs=w:1600,cg:true,m')}
+.service-card:nth-child(3) .service-image{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/2AD18D65-0417-40F1-86E8-50074DB5CA87.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
+.service-card:nth-child(4) .service-image{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/6652F19E-322E-412A-B2B7-DF6EDE3625C2.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
+
+/* Best fit beneath the review bar: before = bare bed, after = healthy finished lawn. */
+.ba-before{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/6652F19E-322E-412A-B2B7-DF6EDE3625C2.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
+.ba-after{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/A8F7A59E-B9F2-4D29-93D5-96BC0D6B01DC.png/:/rs=w:1600,cg:true,m')}
+.matters-card{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/A8F7A59E-B9F2-4D29-93D5-96BC0D6B01DC.png/:/rs=w:1600,cg:true,m')}
+
+/* Let the local section backgrounds carry the supplied photography. */
+img[src*="img1.wsimg.com"]{visibility:hidden}
 .hero-photo{visibility:hidden}
 .work-thumb img[src*="img1.wsimg.com"],
 .service-image img[src*="img1.wsimg.com"],
 .ba-before img[src*="img1.wsimg.com"],
-.ba-after img[src*="img1.wsimg.com"]{
-  visibility:hidden;
-}
+.ba-after img[src*="img1.wsimg.com"]{visibility:hidden}
 
 .service-image{min-height:145px}
 .work-thumb{min-width:0}
@@ -67,4 +80,8 @@ img[src*="img1.wsimg.com"]{
 @media(max-width:600px){
   .before-after{min-height:350px}
   .service-image{min-height:150px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-media{animation:none}
 }
