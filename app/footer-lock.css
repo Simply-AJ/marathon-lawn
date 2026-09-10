@@ -1,0 +1,19 @@
+/* Step 12: Footer lock */
+footer{background:#0b2a1c;color:rgba(255,255,255,.78);border-top:1px solid rgba(255,255,255,.08)}
+.footer-grid{display:grid;grid-template-columns:minmax(240px,1.25fr) minmax(150px,.65fr) minmax(190px,.85fr);gap:54px;padding:58px 0 44px;align-items:start}
+footer .brand{color:#fff}
+footer .brand-mark{background:#7cc83d;color:#102d20}
+footer .brand small{color:rgba(255,255,255,.62)}
+.footer-grid>div:first-child>p{margin:16px 0 0;color:rgba(255,255,255,.58);font-size:12px}
+.footer-links{display:grid;gap:9px;align-content:start}
+.footer-links strong{margin-bottom:7px;color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.footer-links a{width:max-content;color:rgba(255,255,255,.68);font-size:12px;transition:color .18s ease}
+.footer-links a:hover{color:#fff}
+.footer-cta{margin-top:18px}
+.contact-lines{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:18px}
+.contact-lines a{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.72);font-size:12px}
+.contact-lines a:hover{color:#fff}
+footer .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.42);font-size:10px;line-height:1.5}
+footer .footer-bottom span:last-child{white-space:nowrap}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:38px;padding:48px 0 36px}.footer-grid>div:first-child{grid-column:1/-1}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;gap:30px;padding:42px 0 30px}.footer-grid>div:first-child{grid-column:auto}.contact-lines{display:grid;gap:10px}.footer-cta{width:100%;justify-content:center}.footer-bottom{flex-direction:column;align-items:flex-start!important;gap:8px!important}.footer-bottom span:last-child{white-space:normal}}
