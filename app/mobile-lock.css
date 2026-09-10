@@ -58,3 +58,7 @@
   .trust-points{grid-template-columns:1fr}
   .work-strip{grid-template-columns:1fr 1fr}
 }
+
+/* Step 14: Image fallback lock */
+img[src*="B8B63D30-6550-4BF1-A5AC-00748B50C2CD"]{content:url("https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85")}
+img[src*="2AD18D65-0417-40F1-86E8-50074DB5CA87"]{content:url("https://www.colonialnewburgh.com/images/projects/lawn-mulch-beds.jpg")}
