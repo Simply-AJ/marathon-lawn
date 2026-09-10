@@ -1,0 +1,15 @@
+/* Step 10: FAQ lock */
+.faq{background:#fffdf8;border-top:1px solid var(--line)}
+.faq-grid{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:84px;align-items:start}
+.faq .section-title{max-width:470px;font-size:clamp(44px,4.6vw,60px)}
+.faq .section-copy{max-width:430px}
+.faq-list{display:grid;gap:0;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);background:transparent}
+.faq-question{width:100%;min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 4px;background:none;border:0;color:var(--ink);text-align:left;font-size:15px;font-weight:800;cursor:pointer}
+.faq-question svg{flex:0 0 auto;width:19px;height:19px;color:var(--green-2);transition:transform .2s ease}
+.faq-item.open .faq-question svg{transform:rotate(180deg)}
+.faq-answer{max-width:760px;padding:0 48px 22px 4px;color:var(--muted);font-size:14px;line-height:1.7}
+.faq-answer p{margin:0}
+.faq-cta{margin-top:28px}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr;gap:42px}.faq .section-title{max-width:620px}}
+@media(max-width:600px){.faq-grid{gap:32px}.faq .section-title{font-size:clamp(42px,11vw,56px)}.faq-question{min-height:62px;padding:18px 0;font-size:14px}.faq-answer{padding:0 30px 20px 0;font-size:13px}.faq-cta{margin-top:22px}}
