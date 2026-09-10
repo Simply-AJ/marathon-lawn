@@ -1,25 +1,47 @@
-/* Visual QA pass: preserve the approved layout while protecting image-led sections from remote asset failures. */
+/* Visual QA: use stable fallback imagery when the original GoDaddy image CDN fails. */
+.hero-media,
 .work-thumb,
 .service-image,
 .before-after,
 .ba-before,
 .ba-after,
 .matters-card{
-  background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85');
   background-position:center;
   background-size:cover;
   background-repeat:no-repeat;
 }
 
-.work-thumb img,
-.service-image img,
-.ba-before img,
-.ba-after img,
-.matters-card img{
-  background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85');
-  background-position:center;
-  background-size:cover;
-  background-repeat:no-repeat;
+.hero-media{
+  background-image:url('https://www.discoveryoutdoorservices.com/uplift-data/images/services/lawn-maintenance-new.jpg');
+}
+
+.work-thumb:nth-child(1){background-image:url('https://www.discoveryoutdoorservices.com/uplift-data/images/services/lawn-maintenance-new.jpg')}
+.work-thumb:nth-child(2){background-image:url('https://www.sunsetmowing.com/files/account/images/banner-lawn-fertilized-regularly.webp')}
+.work-thumb:nth-child(3){background-image:url('https://static.wixstatic.com/media/4c3946_5682effd2b8d4b729aec8dd14912ddad~mv2.jpg/v1/fill/w_824%2Ch_480%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/StockPhotos-Resized-014.jpg')}
+.work-thumb:nth-child(4){background-image:url('https://headsupoutdoorservices.com/_next/image?q=75&url=https%3A%2F%2Fik.imagekit.io%2F4wu305uo4%2Ftr%3Aw-1000%2Cf-auto%2Clo-true%2Cq-80%2Fimage_69c5d75f5c7cd75eb8ead32e.jpeg&w=3840')}
+.work-thumb:nth-child(5){background-image:url('https://redemptivelawncare.com/wp-content/uploads/2025/03/Lawn-Care-Lawn-Maintenance-Redemptive-Lawn-Care-Harmony-MN-31.jpg')}
+.work-thumb:nth-child(6){background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85')}
+
+.service-card:nth-child(1) .service-image{background-image:url('https://www.discoveryoutdoorservices.com/uplift-data/images/services/lawn-maintenance-new.jpg')}
+.service-card:nth-child(2) .service-image{background-image:url('https://static.wixstatic.com/media/4c3946_5682effd2b8d4b729aec8dd14912ddad~mv2.jpg/v1/fill/w_824%2Ch_480%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/StockPhotos-Resized-014.jpg')}
+.service-card:nth-child(3) .service-image{background-image:url('https://headsupoutdoorservices.com/_next/image?q=75&url=https%3A%2F%2Fik.imagekit.io%2F4wu305uo4%2Ftr%3Aw-1000%2Cf-auto%2Clo-true%2Cq-80%2Fimage_69c5d75f5c7cd75eb8ead32e.jpeg&w=3840')}
+.service-card:nth-child(4) .service-image{background-image:url('https://www.sunsetmowing.com/files/account/images/banner-lawn-fertilized-regularly.webp')}
+
+.ba-before{background-image:url('https://www.sunsetmowing.com/files/account/images/banner-lawn-fertilized-regularly.webp')}
+.ba-after{background-image:url('https://www.discoveryoutdoorservices.com/uplift-data/images/services/lawn-maintenance-new.jpg')}
+.matters-card{background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=85')}
+
+/* The original img1.wsimg.com assets intermittently fail when hot-linked from Vercel. Hide the failed element so the stable parent fallback remains visible. */
+img[src*="img1.wsimg.com"]{
+  visibility:hidden;
+}
+
+.hero-photo{visibility:hidden}
+.work-thumb img[src*="img1.wsimg.com"],
+.service-image img[src*="img1.wsimg.com"],
+.ba-before img[src*="img1.wsimg.com"],
+.ba-after img[src*="img1.wsimg.com"]{
+  visibility:hidden;
 }
 
 .service-image{min-height:145px}
