@@ -1,15 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import './reference.css'
-import './services-lock.css'
-import './pricing-lock.css'
-import './how-lock.css'
-import './faq-lock.css'
-import './final-cta-lock.css'
-import './footer-lock.css'
-import './mobile-lock.css'
-import './visual-qa.css'
-import './source-reference-lock.css'
+import './marathon-v2.css'
 
 const siteUrl = 'https://marathonlawn.com'
 
