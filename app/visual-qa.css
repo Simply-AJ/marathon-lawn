@@ -1,4 +1,4 @@
-/* Marathon photo pass: use the supplied project photography throughout the landing page. */
+/* Marathon photo pass: use supplied project photography. */
 .hero-media,
 .work-thumb,
 .service-image,
@@ -11,9 +11,9 @@
   background-repeat:no-repeat;
 }
 
-/* Hero: the lawn-care worker using the backpack blower. */
+/* Hero: supplied photo of the lawn-care worker using the backpack blower. */
 .hero-media{
-  background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/B8B63D30-6550-4BF1-A5AC-00748B50C2CD.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1800,h:1200,cg:true');
+  background-image:url('/marathon/hero-person.jpg');
   animation:marathonHeroDrift 18s ease-in-out infinite alternate;
   overflow:hidden;
 }
@@ -31,7 +31,7 @@
   100%{background-position:56% 46%;transform:scale(1.045)}
 }
 
-/* Work strip: use the supplied lawn-care photography rather than stock imagery. */
+/* Work strip: supplied Marathon Lawn photography. */
 .work-thumb:nth-child(1){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/B8B63D30-6550-4BF1-A5AC-00748B50C2CD.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,h:1200,cg:true')}
 .work-thumb:nth-child(2){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/A8F7A59E-B9F2-4D29-93D5-96BC0D6B01DC.png/:/rs=w:1600,cg:true,m')}
 .work-thumb:nth-child(3){background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/409D34DD-077B-4A8B-B203-644F23E1D388.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
@@ -44,12 +44,11 @@
 .service-card:nth-child(3) .service-image{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/2AD18D65-0417-40F1-86E8-50074DB5CA87.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
 .service-card:nth-child(4) .service-image{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/6652F19E-322E-412A-B2B7-DF6EDE3625C2.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
 
-/* Best fit beneath the review bar: before = bare bed, after = healthy finished lawn. */
-.ba-before{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/6652F19E-322E-412A-B2B7-DF6EDE3625C2.png/:/cr=t:0%,l:0%,w:100%,h:100%/rs=w:1600,cg:true')}
-.ba-after{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/A8F7A59E-B9F2-4D29-93D5-96BC0D6B01DC.png/:/rs=w:1600,cg:true,m')}
+/* Best fit beneath the review bar: supplied before and after images. */
+.ba-before{background-image:url('/marathon/before.jpg')}
+.ba-after{background-image:url('/marathon/after.jpg')}
 .matters-card{background-image:url('https://img1.wsimg.com/isteam/ip/981a2dd6-0aff-4b3f-8ada-e5e843f9eead/A8F7A59E-B9F2-4D29-93D5-96BC0D6B01DC.png/:/rs=w:1600,cg:true,m')}
 
-/* Let the local section backgrounds carry the supplied photography. */
 img[src*="img1.wsimg.com"]{visibility:hidden}
 .hero-photo{visibility:hidden}
 .work-thumb img[src*="img1.wsimg.com"],
