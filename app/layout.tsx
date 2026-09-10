@@ -6,6 +6,7 @@ import './pricing-lock.css'
 import './how-lock.css'
 import './faq-lock.css'
 import './final-cta-lock.css'
+import './footer-lock.css'
 
 const siteUrl = 'https://marathonlawn.com'
 
