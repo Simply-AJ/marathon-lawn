@@ -8,6 +8,7 @@ import './faq-lock.css'
 import './final-cta-lock.css'
 import './footer-lock.css'
 import './mobile-lock.css'
+import './visual-qa.css'
 
 const siteUrl = 'https://marathonlawn.com'
 
