@@ -1,0 +1,17 @@
+/* Step 9: How It Works lock */
+.how{background:#fffdf8;border-top:1px solid var(--line)}
+.how-grid{grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);column-gap:78px;row-gap:48px;align-items:start}
+.how .section-title{max-width:470px;font-size:clamp(44px,4.6vw,60px)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.steps>div{position:relative;padding:24px 18px 20px;border:1px solid var(--line);border-radius:18px;background:#fff;min-height:178px;box-shadow:0 12px 30px rgba(16,45,32,.05)}
+.steps>div>span{display:grid;place-items:center;width:38px;height:38px;margin-bottom:23px;border-radius:50%;background:var(--lime);color:var(--ink);font-family:Georgia,'Times New Roman',serif;font-size:18px;font-weight:800}
+.steps b{display:block;font-size:14px;line-height:1.25;color:var(--ink)}
+.steps small{display:block;margin-top:9px;color:var(--muted);font-size:11px;line-height:1.5}
+.matters-card{grid-column:2;position:relative;min-height:235px;overflow:hidden;border-radius:24px;background:#163b29;box-shadow:0 18px 45px rgba(16,45,32,.12)}
+.matters-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.matters-card:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,39,26,.88),rgba(8,39,26,.3) 72%,rgba(8,39,26,.2))}
+.matters-card>div{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;min-height:235px;width:50%;padding:28px;color:#fff}
+.matters-card strong{font-family:Georgia,'Times New Roman',serif;font-size:32px;line-height:.98;letter-spacing:-.035em}
+.matters-card small{margin-top:12px;font-size:11px;line-height:1.55;color:rgba(255,255,255,.78)}
+@media(max-width:900px){.how-grid{grid-template-columns:1fr;gap:40px}.how .section-title{max-width:650px}.steps{grid-template-columns:repeat(3,1fr)}.matters-card{grid-column:1}.matters-card>div{width:58%}}
+@media(max-width:600px){.how-grid{gap:32px}.how .section-title{font-size:clamp(42px,11vw,56px)}.steps{grid-template-columns:1fr;gap:10px}.steps>div{min-height:0;padding:17px 16px}.steps>div>span{width:34px;height:34px;margin-bottom:14px;font-size:16px}.steps small{margin-top:6px}.matters-card{min-height:205px;border-radius:20px}.matters-card>div{min-height:205px;width:78%;padding:22px}.matters-card strong{font-size:29px}}
