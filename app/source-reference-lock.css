@@ -1,0 +1,99 @@
+/* Source-reference lock: matches the supplied reference image for the sections after the proof/review bar. */
+.weekends{padding-block:68px;background:#f7f3e9}
+.weekends-grid{grid-template-columns:minmax(0,1fr) minmax(430px,.9fr);gap:58px;align-items:center}
+.weekends .eyebrow{color:#2d673e}
+.weekends .section-title{max-width:590px;font-size:clamp(42px,4.2vw,58px);line-height:.96;margin-top:10px}
+.weekends .section-copy{max-width:570px;margin-top:18px;font-size:14px;line-height:1.6}
+.check-list{gap:9px;margin:22px 0 25px}
+.check-list li{font-size:12px;line-height:1.25}
+.check-list li svg{width:19px;height:19px;padding:3px}
+.weekends .btn{min-height:42px;padding:12px 18px;font-size:11px}
+.before-after{height:355px;border-radius:22px;box-shadow:0 16px 36px rgba(16,45,32,.14)}
+.review-card{right:12px;bottom:12px;width:180px;padding:11px 12px;border-radius:11px}
+.review-card .stars{font-size:10px}
+.review-card p{margin:4px 0;font-size:9px;line-height:1.35}
+.review-card small{font-size:7px}
+.ba-before>span,.ba-after>span{top:12px;padding:5px 8px;font-size:8px}
+.ba-before>span{left:12px}.ba-after>span{right:12px}
+.ba-handle{width:34px;height:34px;font-size:12px}
+
+.services-section{padding-block:68px}
+.services-section .section-head{align-items:end;margin-bottom:22px}
+.services-section .section-title{font-size:clamp(36px,4vw,54px);line-height:.98}
+.services-section .section-copy{margin-top:8px;font-size:13px;color:rgba(255,255,255,.72)}
+.service-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.service-card{border-radius:11px;background:#fffdf8;box-shadow:none}
+.service-image{height:105px;min-height:105px}
+.service-content{padding:13px 14px 15px}
+.service-icon{width:29px;height:29px;margin-top:-28px;margin-bottom:8px}
+.service-icon svg{width:15px;height:15px}
+.service-content h3{font-size:16px;margin:0 0 5px}
+.service-content p{font-size:9px;line-height:1.35;margin:0 0 10px}
+.service-content a{font-size:9px}
+.light-outline{min-height:38px;padding:10px 16px;font-size:10px}
+
+.pricing{padding-block:60px}
+.pricing-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:70px;align-items:center}
+.pricing .section-title{font-size:clamp(38px,4vw,56px);line-height:.96}
+.pricing .section-copy{font-size:13px;line-height:1.55;margin-top:13px}
+.price-table{border-radius:12px;overflow:hidden}
+.price-head,.price-row{min-height:38px;padding:8px 14px}
+.price-head{font-size:8px}
+.price-row{grid-template-columns:1.4fr .8fr .8fr;font-size:10px}
+.price-row small{font-size:7px}
+.price-note{font-size:8px;line-height:1.35;padding:10px 14px}
+.price-add-on{grid-template-columns:1fr auto;gap:2px 10px;padding:9px 14px}
+.price-add-on span,.price-add-on b{font-size:9px}.price-add-on small{grid-column:1/-1;font-size:7px}
+
+.how{padding-block:58px}
+.how-grid{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);column-gap:34px;row-gap:24px;align-items:start}
+.how .section-title{font-size:clamp(34px,3.5vw,48px);line-height:.97}
+.steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.steps>div{min-height:90px;padding:11px 10px;border-radius:10px}
+.steps>div span{width:23px;height:23px;font-size:11px}
+.steps>div b{font-size:9px}.steps>div small{font-size:7px;line-height:1.3}
+.matters-card{grid-column:2;height:125px;border-radius:18px;overflow:hidden}
+.matters-card img{height:100%;width:100%;object-fit:cover}
+.matters-card>div{padding:14px 17px}.matters-card strong{font-size:20px;line-height:.95}.matters-card small{font-size:7px;max-width:230px}
+
+.faq{padding-block:58px}
+.faq-grid{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:52px;align-items:start}
+.faq .section-title{font-size:clamp(34px,3.5vw,48px);line-height:.97}
+.faq .section-copy{font-size:13px;line-height:1.5;margin-top:12px}
+.faq-list details{padding:10px 12px}.faq-list summary{font-size:10px}.faq-list p{font-size:9px;line-height:1.45}
+
+.final-cta{padding-block:56px}
+.final-grid{grid-template-columns:minmax(0,1fr) minmax(340px,.72fr);gap:50px;align-items:center}
+.final-cta .section-title{font-size:clamp(38px,4vw,55px);line-height:.96}
+.final-cta .section-copy{font-size:12px;margin-top:10px;color:rgba(255,255,255,.76)}
+.contact-lines{display:grid;gap:7px;margin-top:17px}.contact-lines a,.contact-lines span{font-size:10px}
+
+footer{padding-top:28px}
+.footer-grid{grid-template-columns:1.55fr .8fr .8fr 1fr;gap:24px;align-items:start}
+.footer-grid>div{min-width:0;text-align:left}
+.footer-grid .brand{justify-content:flex-start}
+.footer-grid>div:first-child p{margin:12px 0 0;font-size:10px;color:rgba(255,255,255,.6)}
+.footer-links{align-items:flex-start;justify-items:start;gap:6px}
+.footer-links strong{font-size:9px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+.footer-links a,.footer-links span{font-size:9px;line-height:1.35;text-align:left}
+.footer-cta{margin-top:7px;min-height:35px;padding:9px 12px;font-size:9px}
+.footer-bottom{margin-top:25px;padding:13px 0;font-size:7px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+
+/* Remote source images are unreliable in deployment. Hide failed GoDaddy images cleanly so the designed container fallback remains visible. */
+.hero-media{background:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1800&q=88') center/cover no-repeat}
+.work-thumb,.service-image,.ba-before,.ba-after,.matters-card{background:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1400&q=88') center/cover no-repeat}
+img[src*="img1.wsimg.com"]{opacity:0}
+
+@media(max-width:900px){
+  .weekends{padding-block:55px}.weekends-grid{grid-template-columns:1fr;gap:34px}.before-after{height:390px}
+  .service-grid{grid-template-columns:1fr 1fr}.services-section{padding-block:55px}
+  .pricing-grid,.how-grid,.faq-grid,.final-grid{grid-template-columns:1fr;gap:35px}
+  .steps{grid-template-columns:repeat(3,1fr)}.matters-card{grid-column:1;height:180px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media(max-width:600px){
+  .weekends{padding-block:48px}.weekends .section-title{font-size:clamp(38px,11vw,52px)}.before-after{height:340px}
+  .service-grid{grid-template-columns:1fr}.service-image{height:145px}
+  .steps{grid-template-columns:1fr}.matters-card{height:180px}
+  .footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.footer-bottom{display:grid;gap:7px}
+}
