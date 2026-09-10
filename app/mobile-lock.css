@@ -1,0 +1,60 @@
+/* Step 13: Mobile version lock */
+@media(max-width:900px){
+  body{overflow-x:hidden}
+  .site-header{position:relative;z-index:30}
+  .hero{overflow:hidden}
+  .hero-inner{width:calc(100% - 28px)}
+  .hero-copy{max-width:none}
+  .hero-form-wrap{width:100%;max-width:none}
+  .quote-card{padding:20px}
+  .quote-title{font-size:27px}
+  .work-strip{padding-bottom:22px}
+  .section-head{align-items:flex-start;gap:24px}
+  .service-grid{gap:12px}
+  .service-card{min-width:0}
+  .service-content{padding:18px}
+  .service-content h3{font-size:18px}
+  .service-content p{font-size:12px}
+  .pricing-grid,.how-grid,.faq-grid,.final-grid{width:calc(100% - 28px)}
+  .price-table{overflow-x:hidden}
+  .price-head,.price-row{font-size:13px}
+  .matters-card{width:100%}
+  .faq-answer{max-width:100%}
+  .footer-grid{gap:28px}
+}
+@media(max-width:600px){
+  .hero-inner{padding-top:38px}
+  .hero h1{max-width:100%;line-height:.94}
+  .hero-location{font-size:9px;letter-spacing:.15em}
+  .trust-points{grid-template-columns:1fr 1fr}
+  .trust-points>div{grid-template-columns:32px 1fr;column-gap:7px}
+  .trust-points span{width:32px;height:32px}
+  .trust-points b{font-size:10px}
+  .trust-points small{font-size:8px}
+  .work-thumb-label{left:8px;right:6px;bottom:7px;font-size:9px}
+  .proof-grid>a,.proof-grid>div{padding:17px 14px}
+  .proof-icon{width:34px;height:34px}
+  .section-head{display:flex;flex-direction:column}
+  .section-head>.btn{width:100%}
+  .service-grid{grid-template-columns:1fr}
+  .service-image{height:150px}
+  .service-content{padding:18px}
+  .steps{grid-template-columns:1fr}
+  .steps>div{display:grid;grid-template-columns:36px 1fr;column-gap:12px;align-items:center}
+  .steps>div>span{grid-row:1 / span 2;margin:0}
+  .steps small{margin-top:4px}
+  .matters-card>div{width:88%}
+  .price-head,.price-row{grid-template-columns:1.25fr .9fr .9fr;padding-left:13px;padding-right:13px}
+  .price-row{font-size:13px}
+  .price-row b{font-size:14px}
+  .price-note,.price-add-on{font-size:11px}
+  .final-cta .quote-card{padding:18px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{gap:8px;text-align:center}
+}
+@media(max-width:380px){
+  .header-cta{display:none}
+  .hero h1{font-size:45px}
+  .trust-points{grid-template-columns:1fr}
+  .work-strip{grid-template-columns:1fr 1fr}
+}
