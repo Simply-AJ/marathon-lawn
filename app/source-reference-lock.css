@@ -79,6 +79,10 @@ footer{padding-top:28px}
 .footer-cta{margin-top:7px;min-height:35px;padding:9px 12px;font-size:9px}
 .footer-bottom{margin-top:25px;padding:13px 0;font-size:7px;display:flex;justify-content:space-between;align-items:center;gap:20px}
 
+/* Match the supplied reference's five-card work strip. */
+.work-strip{grid-template-columns:repeat(5,minmax(0,1fr))}
+.work-thumb:nth-child(6){display:none}
+
 /* Remote source images are unreliable in deployment. Hide failed GoDaddy images cleanly so the designed container fallback remains visible. */
 .hero-media{background:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1800&q=88') center/cover no-repeat}
 .work-thumb,.service-image,.ba-before,.ba-after,.matters-card{background:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1400&q=88') center/cover no-repeat}
@@ -89,6 +93,7 @@ img[src*="img1.wsimg.com"]{opacity:0}
   .service-grid{grid-template-columns:1fr 1fr}.services-section{padding-block:55px}
   .pricing-grid,.how-grid,.faq-grid,.final-grid{grid-template-columns:1fr;gap:35px}
   .steps{grid-template-columns:repeat(3,1fr)}.matters-card{grid-column:1;height:180px}
+  .work-strip{grid-template-columns:repeat(3,1fr)}.work-thumb:nth-child(6){display:block}
   .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
 }
 @media(max-width:600px){
