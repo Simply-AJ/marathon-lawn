@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import './reference.css'
 import './services-lock.css'
+import './pricing-lock.css'
 
 const siteUrl = 'https://marathonlawn.com'
 
