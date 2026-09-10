@@ -1,0 +1,17 @@
+/* Step 11: Final CTA lock */
+.final-cta{position:relative;overflow:hidden;background:#123b28;color:#fff;padding-top:96px;padding-bottom:96px}
+.final-cta:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 82% 50%,rgba(124,200,61,.14),transparent 34%)}
+.final-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(380px,.7fr);gap:76px;align-items:center}
+.final-cta .eyebrow{color:#b7dc91}
+.final-cta .section-title{max-width:650px;margin:14px 0 20px;color:#fffdf8;font-size:clamp(48px,5.5vw,72px);line-height:.98;letter-spacing:-.045em}
+.final-cta .section-copy{max-width:560px;color:rgba(255,255,255,.76);font-size:16px;line-height:1.65}
+.final-cta .contact-lines{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:28px}
+.final-cta .contact-lines a{display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:13px;font-weight:800}
+.final-cta .contact-lines a:hover{color:#b7dc91}
+.final-cta .quote-card{width:100%;max-width:430px;margin-left:auto;background:#fffdf8;color:var(--ink);box-shadow:0 26px 60px rgba(0,0,0,.22)}
+.final-cta .quote-card .eyebrow{color:var(--green-2)}
+.final-cta .quote-title{font-size:clamp(30px,3vw,40px);line-height:1.02}
+.final-cta .quote-copy{color:var(--muted)}
+.final-cta .quote-fields label span{color:var(--ink)}
+@media(max-width:900px){.final-cta{padding-top:76px;padding-bottom:76px}.final-grid{grid-template-columns:1fr;gap:46px}.final-cta .section-title{max-width:680px}.final-cta .quote-card{margin:0;max-width:620px}}
+@media(max-width:600px){.final-cta{padding-top:62px;padding-bottom:62px}.final-grid{gap:34px}.final-cta .section-title{font-size:clamp(42px,11vw,58px);margin-top:12px}.final-cta .section-copy{font-size:14px}.final-cta .contact-lines{gap:12px 18px;margin-top:22px}.final-cta .quote-card{border-radius:20px}.final-cta .quote-title{font-size:30px}}
